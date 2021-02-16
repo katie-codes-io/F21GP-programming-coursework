@@ -24,7 +24,6 @@ public class Boid : MonoBehaviour
 
         System.Random random = new System.Random();
         int index = random.Next(sunflowers.Length);
-        Debug.Log(index);
         sunflower = sunflowers[index];
 
     }
