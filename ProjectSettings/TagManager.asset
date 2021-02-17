@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bug
   - Sunflower
+  - Grass
   layers:
   - Default
   - TransparentFX

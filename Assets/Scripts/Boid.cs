@@ -6,8 +6,8 @@ public class Boid : MonoBehaviour
 {
     public float step;
     public float speed;
-    public GameObject[] sunflowers = new GameObject[9];
-    public GameObject sunflower;
+    private GameObject[] sunflowers = new GameObject[9];
+    private GameObject sunflower;
 
     // Start is called before the first frame update
     void Start()
