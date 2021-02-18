@@ -3805,6 +3805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5877955256195585335}
   - component: {fileID: 5877955256195585334}
+  - component: {fileID: 7987278459231967929}
   m_Layer: 0
   m_Name: South Fence
   m_TagString: Untagged
@@ -3841,8 +3842,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.102022, y: 1.0409069, z: 0.082733154}
-  m_Center: {x: -0.002714157, y: 13.124055, z: 43.34198}
+  m_Size: {x: 4.102022, y: 1.1680803, z: 0.082733154}
+  m_Center: {x: -0.002714157, y: 13.060469, z: 43.34198}
+--- !u!54 &7987278459231967929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877955256195585336}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5877955256422064672
 GameObject:
   m_ObjectHideFlags: 0
@@ -6325,6 +6342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5877955256895986461}
   - component: {fileID: 5877955256895986460}
+  - component: {fileID: 102768758179439637}
   m_Layer: 0
   m_Name: West Fence
   m_TagString: Untagged
@@ -6360,8 +6378,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08200073, y: 1.1097622, z: 2.1870651}
-  m_Center: {x: 1.9651966, y: 13.135119, z: 40.32761}
+  m_Size: {x: 0.08200073, y: 1.348259, z: 2.1870651}
+  m_Center: {x: 1.9651966, y: 13.015871, z: 40.32761}
+--- !u!54 &102768758179439637
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877955256895986462}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5877955256945021254
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,6 +8260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5877955257064097748}
   - component: {fileID: 5877955257064097747}
+  - component: {fileID: 5279316905421866689}
   m_Layer: 0
   m_Name: North Fence
   m_TagString: Untagged
@@ -8262,8 +8297,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.098756, y: 1.0477524, z: 0.08093262}
-  m_Center: {x: -0.013652325, y: 13.1158695, z: 39.323425}
+  m_Size: {x: 4.098756, y: 1.21175, z: 0.08093262}
+  m_Center: {x: -0.013652325, y: 13.033871, z: 39.323425}
+--- !u!54 &5279316905421866689
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877955257064097749}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5877955257140166384
 GameObject:
   m_ObjectHideFlags: 0
@@ -8274,6 +8325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5877955257140166383}
   - component: {fileID: 5877955257140166382}
+  - component: {fileID: 3822311405404242194}
   m_Layer: 0
   m_Name: East Fence
   m_TagString: Untagged
@@ -8310,8 +8362,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08495808, y: 1.0715446, z: 4.0810623}
-  m_Center: {x: -2.020742, y: 13.13813, z: 41.342503}
+  m_Size: {x: 0.08495808, y: 1.2156467, z: 4.0810623}
+  m_Center: {x: -2.020742, y: 13.066079, z: 41.342503}
+--- !u!54 &3822311405404242194
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877955257140166384}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5877955257159390657
 GameObject:
   m_ObjectHideFlags: 0

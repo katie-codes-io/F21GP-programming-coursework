@@ -19,14 +19,6 @@ public class EnterShed : MonoBehaviour
         objects[1] = shedRoof;
     }
 
-    void OnTriggerEnter (Collider other) {
-        Debug.Log("Enter");
-    }
-
-    void OnTriggerStay (Collider other) {
-        Debug.Log("Stay");
-    }
-
     void OnTriggerExit(Collider other) {
 
         // First check if other is a player
