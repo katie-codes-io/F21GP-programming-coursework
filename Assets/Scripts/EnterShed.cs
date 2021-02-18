@@ -19,6 +19,7 @@ public class EnterShed : MonoBehaviour
         objects[1] = shedRoof;
     }
 
+    // Trigger
     void OnTriggerExit(Collider other) {
 
         // First check if other is a player
