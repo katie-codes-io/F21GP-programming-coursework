@@ -11,12 +11,13 @@ public class KeyboardController : MonoBehaviour {
     Animator animator;
     CharacterController controller;
 
-    public KeyCode keyUp    = KeyCode.W;
-    public KeyCode keyDown  = KeyCode.S;
-    public KeyCode keyLeft  = KeyCode.A;
-    public KeyCode keyRight = KeyCode.D;
+    public KeyCode keyUp     = KeyCode.W;
+    public KeyCode keyDown   = KeyCode.S;
+    public KeyCode keyLeft   = KeyCode.A;
+    public KeyCode keyRight  = KeyCode.D;
     public KeyCode keySprint = KeyCode.LeftShift;
     public KeyCode keyAttack = KeyCode.Space;
+    public KeyCode keyPickup = KeyCode.E;
 
     void Start() {
         animator = GetComponent<Animator>();
@@ -27,12 +28,12 @@ public class KeyboardController : MonoBehaviour {
 
         vector = Vector3.zero;
 
-        bool pressingUp    = Input.GetKey(keyUp);
-        bool pressingDown  = Input.GetKey(keyDown);
-        bool pressingLeft  = Input.GetKey(keyRight);     // the left and right arrows are reversed due to the fixed camera,
-        bool pressingRight = Input.GetKey(keyLeft);      // the object is facing the camera rather than the camera being behind
-        bool pressingShift = Input.GetKeyDown(keySprint);
-        bool pressingSpace = Input.GetKeyDown(keyAttack);
+        bool pressingUp     = Input.GetKey(keyUp);
+        bool pressingDown   = Input.GetKey(keyDown);
+        bool pressingLeft   = Input.GetKey(keyRight);     // the left and right arrows are reversed due to the fixed camera,
+        bool pressingRight  = Input.GetKey(keyLeft);      // the object is facing the camera rather than the camera being behind
+        bool pressingShift  = Input.GetKeyDown(keySprint);
+        bool pressingSpace  = Input.GetKeyDown(keyAttack);
 
         if (controller.isGrounded) {
 

@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 6795435125173702560}
   - component: {fileID: 6734612792296621741}
   - component: {fileID: 61253628061303859}
+  - component: {fileID: 8470118174414328807}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -143,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61253628061303858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: 0.00000047683716, z: 7}
+  m_LocalPosition: {x: 13, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8060017300727221631}
@@ -182,7 +183,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61253628061303858}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -201,13 +202,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.82
-  m_Radius: 0.18
+  m_Height: 1.63
+  m_Radius: 0.19
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.94, z: 0}
+  m_Center: {x: 0, y: 0.88, z: 0}
 --- !u!114 &6734612792296621741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,20 @@ MonoBehaviour:
   keyRight: 100
   keySprint: 304
   keyAttack: 32
+  keyPickup: 101
+--- !u!65 &8470118174414328807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61253628061303858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 0.47466594, z: 1}
+  m_Center: {x: 0, y: 0.112667054, z: 0.1}
 --- !u!1 &127948681118008502
 GameObject:
   m_ObjectHideFlags: 0

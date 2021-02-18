@@ -1058,9 +1058,10 @@ GameObject:
   - component: {fileID: -1366830525811663866}
   - component: {fileID: -422641777145259957}
   - component: {fileID: 7689017753460218244}
+  - component: {fileID: -6748300225019147573}
   m_Layer: 0
-  m_Name: spider_pref
-  m_TagString: Untagged
+  m_Name: Bug
+  m_TagString: Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,8 +1126,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.41, y: 0.188, z: 0.41}
-  m_Center: {x: 0, y: 0.05539507, z: 0}
+  m_Size: {x: 0.41, y: 0.24534094, z: 0.41}
+  m_Center: {x: 0, y: 0.08406556, z: 0}
 --- !u!54 &7689017753460218244
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1142,7 +1143,22 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &-6748300225019147573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715103906888602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790376f35be2c5746a3cedd0b2e9aedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xForce: 0
+  yForce: 200
+  zForce: 100
 --- !u!1 &1719841372004032
 GameObject:
   m_ObjectHideFlags: 0
