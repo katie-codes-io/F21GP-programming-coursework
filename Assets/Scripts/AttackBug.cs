@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackBug : MonoBehaviour
 {
@@ -8,20 +9,39 @@ public class AttackBug : MonoBehaviour
     public float yForce = 100;
     public float zForce = 100;
 
+    private NavMeshAgent agent;
+    private bool wasAttacked = false;
+    private bool wasKilled   = false;
+    private float elapsed    = 0.0f;
+    private float wait       = 2.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Check if the bug was killed
+        if (wasKilled) {
 
+            // Wait a little time before destroying the object
+            elapsed += Time.deltaTime;
+            if (elapsed >= wait) {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Attack bug
     void Attack() {
+        wasAttacked = true;
+        
+        // Disable NavMeshAgent whilst appling force
+        agent.enabled = false;
+
         // Apply force
         GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
     }
@@ -38,6 +58,19 @@ public class AttackBug : MonoBehaviour
 
             if (attacking) {
                 Attack();
+            }
+        }
+    }
+
+    // Collision with the ground
+    void OnCollisionEnter (Collision collision) {
+
+        // Check if bug has been attacked first
+        if (wasAttacked) {
+
+            // Check if collision is with terrain, then kill bug
+            if (collision.collider.name == "Terrain") {
+                wasKilled = true;
             }
         }
     }

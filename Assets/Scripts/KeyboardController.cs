@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class KeyboardController : MonoBehaviour {
     
-    float velocity = 2f;
-    float gravity  = -9.8f;
-    Vector3 vector = Vector3.zero;
-
-    Animator animator;
-    CharacterController controller;
+    private Animator animator;
+    private CharacterController controller;
 
     public KeyCode keyUp     = KeyCode.W;
     public KeyCode keyDown   = KeyCode.S;
@@ -25,8 +21,6 @@ public class KeyboardController : MonoBehaviour {
     }
 
     void Update () {
-
-        vector = Vector3.zero;
 
         bool pressingUp     = Input.GetKey(keyUp);
         bool pressingDown   = Input.GetKey(keyDown);
