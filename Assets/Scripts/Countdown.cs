@@ -56,9 +56,9 @@ public class Countdown : MonoBehaviour
         int windowWidth = 100;
         int windowHeight = 100;
 
-        // Render the label
+        // Game over screen or render time remaining
         if (gameover) {
-            Debug.Log("Game over!");
+            GetComponent<GameOver>().GameOverScreen();
         
         } else {
 
