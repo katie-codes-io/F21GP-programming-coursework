@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpawnBugs : MonoBehaviour
 {
-    private GameObject[] grasses;
     public GameObject bug;
     public float start = 1.0f;
     public float frequency = 1.0f;
+
+    private GameObject[] grasses;
 
     // Start is called before the first frame update
     void Start()

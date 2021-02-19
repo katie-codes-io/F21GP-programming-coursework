@@ -4349,8 +4349,9 @@ MonoBehaviour:
   keyDown: 274
   keyLeft: 276
   keyRight: 275
-  keySprint: 305
-  keyAttack: 256
+  keySprint: 256
+  keyAttack: 305
+  keyPickup: 303
 --- !u!65 &9017338551676244773
 BoxCollider:
   m_ObjectHideFlags: 0
