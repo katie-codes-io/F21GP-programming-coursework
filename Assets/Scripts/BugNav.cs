@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boid : MonoBehaviour
+public class BugNav : MonoBehaviour
 {
     public float step;
     public float speed;
