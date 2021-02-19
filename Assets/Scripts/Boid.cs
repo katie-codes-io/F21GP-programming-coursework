@@ -32,10 +32,10 @@ public class Boid : MonoBehaviour
     void Update()
     {
         // move boid to sunflower
-        // sunflower.transform.position;
-
-        step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, sunflower.transform.position, step);
+        if (sunflower != null) {
+            step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, sunflower.transform.position, step);
+        }
 
     }
 }

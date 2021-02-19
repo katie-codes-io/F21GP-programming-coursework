@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +20,11 @@ public class AttackBug : MonoBehaviour
         
     }
 
+    // Attack bug
+    void Attack() {
+        GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
+    }
+
     // Collider with player
     void OnTriggerStay (Collider other) {
 
@@ -35,9 +40,4 @@ public class AttackBug : MonoBehaviour
             }
         }
     }
-
-    void Attack() {
-        GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
-    }
-
 }
