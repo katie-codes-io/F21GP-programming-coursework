@@ -25,16 +25,16 @@ public class TakeDamage : MonoBehaviour
     // Damage sunflower
     void Damage() {
 
-        // increment damage
+        // Increment damage
         float increment = damageMultiplier * Time.fixedDeltaTime;
         damage += increment;
 
-        // first check if sunflower has been killed
+        // First check if sunflower has been killed
         if (damage >= health) {
             Destroy(gameObject);
         }
         
-        // calculate proportional damage - the sunflower shrinks by that amount
+        // Calculate proportional damage - the sunflower shrinks by that amount
         float propDamage = (increment / health) / 2;
         scaleChange = new Vector3(-propDamage, -propDamage, -propDamage);
         transform.localScale += scaleChange;

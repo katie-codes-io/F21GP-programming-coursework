@@ -1,41 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Boid : MonoBehaviour
+public class BugNav : MonoBehaviour
 {
-    public float step;
-    public float speed;
     private GameObject[] sunflowers = new GameObject[9];
     private GameObject sunflower;
 
     // Start is called before the first frame update
     void Start()
     {
-        // float mass;
-        // float position;
-        // float velocity;
-        // float max_force;
-        // float max_speed;
-        // float orientation;
-
-        speed = 1.0f;
+        // Get all sunflowers
         sunflowers = GameObject.FindGameObjectsWithTag("Sunflower");
 
+        // Pick a random sunflower
         System.Random random = new System.Random();
         int index = random.Next(sunflowers.Length);
         sunflower = sunflowers[index];
 
+        // Use NavMeshAgent to navigate bug to sunflower
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = sunflower.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // move boid to sunflower
-        if (sunflower != null) {
-            step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, sunflower.transform.position, step);
-        }
 
     }
 }
