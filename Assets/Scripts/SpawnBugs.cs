@@ -34,7 +34,7 @@ public class SpawnBugs : MonoBehaviour
         GameObject grass = grasses[index];
 
         Vector3 spawnPoint = grass.transform.position;
-        spawnPoint.y = 2.1f;
+        spawnPoint.y = 0.1f;
 
         // create the bug game object
         Instantiate(bug, spawnPoint, Quaternion.identity);
