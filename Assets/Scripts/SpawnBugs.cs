@@ -33,8 +33,11 @@ public class SpawnBugs : MonoBehaviour
         int index = random.Next(grasses.Length);
         GameObject grass = grasses[index];
 
+        Vector3 spawnPoint = grass.transform.position;
+        spawnPoint.y = 2.1f;
+
         // create the bug game object
-        Instantiate(bug, grass.transform.position, Quaternion.identity);
+        Instantiate(bug, spawnPoint, Quaternion.identity);
 
         // spawn the next bug
         Invoke("SpawnBug", frequency);

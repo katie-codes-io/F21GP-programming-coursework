@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BugNav : MonoBehaviour
 {
@@ -26,16 +27,19 @@ public class BugNav : MonoBehaviour
         int index = random.Next(sunflowers.Length);
         sunflower = sunflowers[index];
 
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = sunflower.transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // move boid to sunflower
-        if (sunflower != null) {
-            step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, sunflower.transform.position, step);
-        }
+        // if (sunflower != null) {
+        //     step = speed * Time.deltaTime;
+        //     transform.position = Vector3.MoveTowards(transform.position, sunflower.transform.position, step);
+        // }
 
     }
 }
