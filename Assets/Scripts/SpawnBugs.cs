@@ -13,10 +13,10 @@ public class SpawnBugs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // get the position of all the grasses
+        // Get the position of all the grasses
         grasses = GameObject.FindGameObjectsWithTag("Grass");
 
-        // start spawning bugs
+        // Start spawning bugs
         Invoke("SpawnBug", start);
     }
 
@@ -28,18 +28,19 @@ public class SpawnBugs : MonoBehaviour
 
     void SpawnBug()
     {
-        // get the position of a random grass to have a bug spawn out of
+        // Get the position of a random grass to have a bug spawn out of
         System.Random random = new System.Random();
         int index = random.Next(grasses.Length);
         GameObject grass = grasses[index];
 
+        // Set the spawn point according to gradd position
         Vector3 spawnPoint = grass.transform.position;
         spawnPoint.y = 0.1f;
 
-        // create the bug game object
+        // Create the bug game object
         Instantiate(bug, spawnPoint, Quaternion.identity);
 
-        // spawn the next bug
+        // Spawn the next bug
         Invoke("SpawnBug", frequency);
     }
 }

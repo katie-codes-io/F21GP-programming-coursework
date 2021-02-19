@@ -64,10 +64,6 @@ public class KeyboardController : MonoBehaviour {
                     // Walk animation
                     animator.SetFloat("Run Blend", 0.5f);
                 }
-                // apply gravity
-                vector.y -= gravity * velocity;
-                vector = transform.TransformDirection(Vector3.forward);
-                controller.SimpleMove(vector * velocity);
             }
 
             // Stopped moving
