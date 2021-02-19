@@ -67,7 +67,11 @@ public class PickupTool : MonoBehaviour
         if (showPopup) {
             style.fontSize = 48;
             style.normal.textColor = Color.white;
-            popup = new Rect((horizontal*Screen.width), (vertical*Screen.height), 300, 60);
+
+            int windowWidth = 300;
+            int windowHeight = 60;
+
+            popup = new Rect((horizontal*Screen.width), (vertical*Screen.height), windowWidth, windowHeight);
             GUI.Label(popup, label, style);
         }
     }
