@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2884549409522820630}
   m_Layer: 0
   m_Name: Swarm
-  m_TagString: Untagged
+  m_TagString: Swarm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,9 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 6025787215958760767, guid: 856125d32ace887448282559fc89360d, type: 3}
   behaviour: {fileID: 11400000, guid: 07eb8e04bb459c54eb6093daa2dfb6cf, type: 2}
-  count: 50
-  density: 0.06
+  count: 30
+  density: 0.05
   speed: 1
   agentRadius: 0.75
   avoidanceRadius: 0.25
-  obstacleRadius: 1
+  obstacleRadius: 0.5
+  sunflowerRadius: 1

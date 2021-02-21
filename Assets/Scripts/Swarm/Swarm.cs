@@ -56,20 +56,22 @@ public class Swarm : MonoBehaviour
         // Iterate through the agents in the swarm
         foreach (GameObject agent in agents) {
 
-            // Get neighbours, obstacles and sunflowers
-            List<Transform> neighbours = GetAdjacent(agent, new string[] {"Bug"}, agentRadius);
-            List<Transform> obstacles  = GetAdjacent(agent, new string[] {"Player", "Cat", "Wall"}, obstacleRadius);
-            List<Transform> sunflowers = GetAdjacent(agent, new string[] {"Sunflower"}, sunflowerRadius);
+            if (agent != null) {
+                // Get neighbours, obstacles and sunflowers
+                List<Transform> neighbours = GetAdjacent(agent, new string[] {"Bug"}, agentRadius);
+                List<Transform> obstacles  = GetAdjacent(agent, new string[] {"Player", "Cat", "Wall", "Bench", "Shed"}, obstacleRadius);
+                List<Transform> sunflowers = GetAdjacent(agent, new string[] {"Sunflower"}, sunflowerRadius);
 
-            // Calculate movement according to neighbours and obstacles
-            Vector3 move = behaviour.CalculateMove(agent, this, neighbours, obstacles, sunflowers);
+                // Calculate movement according to neighbours and obstacles
+                Vector3 move = behaviour.CalculateMove(agent, this, neighbours, obstacles, sunflowers);
 
-            // Scale by speed
-            move *= speed;
-            
-            // Apply speed and transform agent
-            agent.transform.forward   = move;
-            agent.transform.position += move * Time.deltaTime;
+                // Scale by speed
+                move *= speed;
+                
+                // Apply speed and transform agent
+                agent.transform.forward   = move;
+                agent.transform.position += move * Time.deltaTime;
+            }
         }
     }
 

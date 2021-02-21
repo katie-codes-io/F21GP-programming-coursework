@@ -9,6 +9,10 @@ TagManager:
   - Grass
   - Cat
   - Wall
+  - Shed
+  - Bench
+  - Swarm
+  - Sunflower Plot
   layers:
   - Default
   - TransparentFX

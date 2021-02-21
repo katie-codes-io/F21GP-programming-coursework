@@ -15,5 +15,5 @@ MonoBehaviour:
   alignmentWeight: 2
   avoidanceWeight: 2
   cohesionWeight: 1
-  obstacleAvoidanceWeight: 10
-  sunflowerCohesionWeight: 2
+  obstacleAvoidanceWeight: 5
+  sunflowerAttractionWeight: 2

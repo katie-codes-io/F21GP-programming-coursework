@@ -56,8 +56,11 @@ public class SwarmBehaviour : ScriptableObject
 
         // Iterate through the neighbours getting the forward direction
         foreach (Transform transform in neighbours) {
-            // Weigh the movement by alignment weight
-            move += alignmentWeight * (transform.transform.forward);
+
+            if (transform != null) {
+                // Weigh the movement by alignment weight
+                move += alignmentWeight * (transform.transform.forward);
+            }
         }
 
         // Scale by number of neighbours
@@ -70,48 +73,43 @@ public class SwarmBehaviour : ScriptableObject
 
         Vector3 move       = Vector3.zero;
         int avoidCount     = 0;
-        int obstacleCount  = 0;
-        int sunflowerCount = 0;
 
         // Iterate through the neighbours getting the difference in position to self
         foreach (Transform transform in neighbours) {
             
-            // Check if the neighbours are within the avoidance radius
-            if (Vector3.SqrMagnitude(transform.position - agent.transform.position) < swarm.avoidanceRadius)
-            {
-                // Weigh the movement by avoidance weight
-                move += avoidanceWeight * (agent.transform.position - transform.position);
-                avoidCount++;
+            if (transform != null) {
+                // Check if the neighbours are within the avoidance radius
+                if (Vector3.SqrMagnitude(transform.position - agent.transform.position) < swarm.avoidanceRadius)
+                {
+                    // Weigh the movement by avoidance weight
+                    move += avoidanceWeight * (agent.transform.position - transform.position);
+                    avoidCount++;
+                }
             }
         }
 
         // Iterate through the obstacles getting the difference in position to self
         foreach (Transform transform in obstacles) {
 
-            // Check if the neighbours are within the obstacle avoidance radius
-            if (Vector3.SqrMagnitude(transform.position - agent.transform.position) < swarm.obstacleRadius)
-            {
+            if (transform != null) {
                 // Weigh the movement by obstacle avoidance weight
                 move += obstacleAvoidanceWeight * (agent.transform.position - transform.position);
-                obstacleCount++;
+
             }
         }
 
         // Iterate through the sunflowers getting the position
         foreach (Transform transform in sunflowers) {
 
-             // Check if the neighbours are within the sunflower radius
-            if (Vector3.SqrMagnitude(transform.position - agent.transform.position) < swarm.sunflowerRadius)
-            {
+            if (transform != null) {
                 // Weigh the movement by sunflower attraction weight
                 move += sunflowerAttractionWeight * (transform.position - agent.transform.position);
-                sunflowerCount++;
             }
         }
 
         // Scale by number of neighbours, obstacles and sunflowers
-        if ((avoidCount + obstacleCount + sunflowerCount) > 0)
-            move /= (avoidCount + obstacleCount + sunflowerCount);
+        if ((avoidCount + obstacles.Count + sunflowers.Count) > 0)
+            move /= (avoidCount + obstacles.Count + sunflowers.Count);
 
         return move;
 
@@ -123,8 +121,11 @@ public class SwarmBehaviour : ScriptableObject
 
         // Iterate through the neighbours getting the position
         foreach (Transform transform in neighbours) {
-            // Weigh the movement by cohesion weight
-            move += cohesionWeight * transform.position;
+
+            if (transform != null) {
+                // Weigh the movement by cohesion weight
+                move += cohesionWeight * transform.position;
+            }
         }
 
         // Scale by number of neighbours
