@@ -18,7 +18,7 @@ public class AttackBug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        
     }
 
     // Update is called once per frame
@@ -38,9 +38,6 @@ public class AttackBug : MonoBehaviour
     // Attack bug
     void Attack() {
         wasAttacked = true;
-        
-        // Disable NavMeshAgent whilst appling force
-        agent.enabled = false;
 
         // Apply force
         GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
@@ -71,6 +68,10 @@ public class AttackBug : MonoBehaviour
             // Check if collision is with terrain, then kill bug
             if (collision.collider.name == "Terrain") {
                 wasKilled = true;
+                
+                // Update the number of bugs killed
+                int current = PlayerStats.GetBugs();
+                PlayerStats.SetBugs(current + 1);
             }
         }
     }
