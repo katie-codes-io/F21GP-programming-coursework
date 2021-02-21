@@ -16,3 +16,4 @@ MonoBehaviour:
   avoidanceWeight: 2
   cohesionWeight: 1
   obstacleAvoidanceWeight: 10
+  sunflowerCohesionWeight: 2

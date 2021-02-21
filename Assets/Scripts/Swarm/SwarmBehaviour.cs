@@ -6,31 +6,34 @@ using UnityEngine;
 public class SwarmBehaviour : ScriptableObject
 {
     // Define editable weights for the different behaviour components
-    public float alignmentWeight         = 1.0f;
-    public float avoidanceWeight         = 1.0f;
-    public float cohesionWeight          = 1.0f;
-    public float obstacleAvoidanceWeight = 1.0f;
+    public float alignmentWeight           = 1.0f;
+    public float avoidanceWeight           = 1.0f;
+    public float cohesionWeight            = 1.0f;
+    public float obstacleAvoidanceWeight   = 1.0f;
+    public float sunflowerAttractionWeight = 1.0f;
 
     // Initialise private instance variables
     private GameObject agent;
     private Swarm swarm;
     private List<Transform> neighbours = new List<Transform>();
     private List<Transform> obstacles = new List<Transform>();
+    private List<Transform> sunflowers = new List<Transform>();
 
     // Calculate move
-    public Vector3 CalculateMove(GameObject agent, Swarm swarm, List<Transform> neighbours, List<Transform> obstacles) {
+    public Vector3 CalculateMove(GameObject agent, Swarm swarm, List<Transform> neighbours, List<Transform> obstacles, List<Transform> sunflowers) {
 
         // Assign to instance variables
         this.agent      = agent;
         this.swarm      = swarm;
         this.neighbours = neighbours;
         this.obstacles  = obstacles;
+        this.sunflowers = sunflowers;
 
         // Initialise move
         Vector3 move = Vector3.zero;
 
-        // First check to see if we have any neighbours or obstacles to deal with
-        if (neighbours.Count > 0 || obstacles.Count > 0) {
+        // First check to see if we have any neighbours, obstacles or sunflowers to deal with
+        if (neighbours.Count > 0 || obstacles.Count > 0 || sunflowers.Count > 0) {
 
             // Perform alignment and append weighted vector to movement
             move += CalculateAlignment();
@@ -65,9 +68,10 @@ public class SwarmBehaviour : ScriptableObject
 
     private Vector3 CalculateAvoidance() {
 
-        Vector3 move      = Vector3.zero;
-        int avoidCount    = 0;
-        int obstacleCount = 0;
+        Vector3 move       = Vector3.zero;
+        int avoidCount     = 0;
+        int obstacleCount  = 0;
+        int sunflowerCount = 0;
 
         // Iterate through the neighbours getting the difference in position to self
         foreach (Transform transform in neighbours) {
@@ -93,9 +97,21 @@ public class SwarmBehaviour : ScriptableObject
             }
         }
 
-        // Scale by number of neighbours and obstacles
-        if ((avoidCount + obstacleCount) > 0)
-            move /= (avoidCount + obstacleCount);
+        // Iterate through the sunflowers getting the position
+        foreach (Transform transform in sunflowers) {
+
+             // Check if the neighbours are within the sunflower radius
+            if (Vector3.SqrMagnitude(transform.position - agent.transform.position) < swarm.sunflowerRadius)
+            {
+                // Weigh the movement by sunflower attraction weight
+                move += sunflowerAttractionWeight * (transform.position - agent.transform.position);
+                sunflowerCount++;
+            }
+        }
+
+        // Scale by number of neighbours, obstacles and sunflowers
+        if ((avoidCount + obstacleCount + sunflowerCount) > 0)
+            move /= (avoidCount + obstacleCount + sunflowerCount);
 
         return move;
 
@@ -119,4 +135,5 @@ public class SwarmBehaviour : ScriptableObject
 
         return move;
     }
+
 }

@@ -19,6 +19,7 @@ public class Swarm : MonoBehaviour
     public float agentRadius     = 1.0f;    // agent collision radius
     public float avoidanceRadius = 0.5f;    // agent avoidance radius
     public float obstacleRadius  = 1.0f;    // agent obstacle avoidance radius
+    public float sunflowerRadius = 1.0f;    // agent sunflower cohesion radius
 
     // Start is called before the first frame update
     void Start()
@@ -55,12 +56,13 @@ public class Swarm : MonoBehaviour
         // Iterate through the agents in the swarm
         foreach (GameObject agent in agents) {
 
-            // Get neighbours and obstacles
-            List<Transform> neighbours = GetAdjacent(agent, new string[] {"Bug"});
-            List<Transform> obstacles  = GetAdjacent(agent, new string[] {"Player", "Cat", "Wall"});
+            // Get neighbours, obstacles and sunflowers
+            List<Transform> neighbours = GetAdjacent(agent, new string[] {"Bug"}, agentRadius);
+            List<Transform> obstacles  = GetAdjacent(agent, new string[] {"Player", "Cat", "Wall"}, obstacleRadius);
+            List<Transform> sunflowers = GetAdjacent(agent, new string[] {"Sunflower"}, sunflowerRadius);
 
             // Calculate movement according to neighbours and obstacles
-            Vector3 move = behaviour.CalculateMove(agent, this, neighbours, obstacles);
+            Vector3 move = behaviour.CalculateMove(agent, this, neighbours, obstacles, sunflowers);
 
             // Scale by speed
             move *= speed;
@@ -72,13 +74,13 @@ public class Swarm : MonoBehaviour
     }
 
     // Method to get adjacent objects by tag
-    List<Transform> GetAdjacent(GameObject agent, string[] tags) {
+    List<Transform> GetAdjacent(GameObject agent, string[] tags, float radius) {
 
         // Get the list of neighbours ready
         List<Transform> neighbours = new List<Transform>();
 
         // Get all overlapping colliders
-        Collider[] colliders = Physics.OverlapSphere(agent.transform.position, agentRadius);
+        Collider[] colliders = Physics.OverlapSphere(agent.transform.position, radius);
 
         // Iterate through the colliders
         foreach (Collider collider in colliders) {
