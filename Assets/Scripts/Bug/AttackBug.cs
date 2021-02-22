@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -66,7 +67,9 @@ public class AttackBug : MonoBehaviour
         if (wasAttacked) {
 
             // Check if collision is with terrain, then kill bug
-            if (collision.collider.name == "Terrain") {
+            string[] obstacles = {"Terrain", "Wall"};
+            if (obstacles.Contains(collision.collider.name)) {
+                Debug.Log(collision.collider.name);
                 wasKilled = true;
                 
                 // Update the number of bugs killed
