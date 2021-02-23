@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnBugs : MonoBehaviour
 {
-    public GameObject bug;
+    public GameObject swarm;
     public float start = 1.0f;
     public float frequency = 1.0f;
 
@@ -20,12 +20,6 @@ public class SpawnBugs : MonoBehaviour
         Invoke("SpawnBug", start);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void SpawnBug()
     {
         // Get the position of a random grass to have a bug spawn out of
@@ -33,12 +27,12 @@ public class SpawnBugs : MonoBehaviour
         int index = random.Next(grasses.Length);
         GameObject grass = grasses[index];
 
-        // Set the spawn point according to gradd position
+        // Set the spawn point according to grass position
         Vector3 spawnPoint = grass.transform.position;
         spawnPoint.y = 0.1f;
 
-        // Create the bug game object
-        Instantiate(bug, spawnPoint, Quaternion.identity);
+        // Create the swarm game object
+        Instantiate(swarm, spawnPoint, Quaternion.identity);
 
         // Spawn the next bug
         Invoke("SpawnBug", frequency);
