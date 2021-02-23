@@ -13,6 +13,7 @@ TagManager:
   - Bench
   - Swarm
   - Sunflower Plot
+  - Navpoint
   layers:
   - Default
   - TransparentFX
