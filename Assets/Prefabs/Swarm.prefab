@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 6025787215958760767, guid: 856125d32ace887448282559fc89360d, type: 3}
   behaviour: {fileID: 11400000, guid: 07eb8e04bb459c54eb6093daa2dfb6cf, type: 2}
-  count: 30
+  count: 15
   density: 0.05
   speed: 1
   agentRadius: 0.75

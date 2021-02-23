@@ -5,41 +5,52 @@ using UnityEngine.AI;
 
 public class CatNav : MonoBehaviour
 {
-    private GameObject[] sunflowers = new GameObject[9];
-    private GameObject sunflower;
-    NavMeshAgent agent;
-    Animator animator;
+    public Transform[] waypoints;
+
+    private int destinationIndex = 0;
+    private NavMeshAgent agent;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get all sunflowers
-        sunflowers = GameObject.FindGameObjectsWithTag("Sunflower");
-
-        // Pick a random sunflower
-        System.Random random = new System.Random();
-        int index = random.Next(sunflowers.Length);
-        sunflower = sunflowers[index];
-
         // Use NavMeshAgent to navigate cat
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = sunflower.transform.position;
 
         // Get the animator
         animator = GetComponent<Animator>();
+
+        // Navigate
+        Navigate();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rigidbody body = GetComponent<Rigidbody>();
+        // Navigate to the next point when close to the current one
+        if (!agent.pathPending && agent.remainingDistance < 0.5f) {
+            Navigate();
+        }
 
-        Debug.Log(body.velocity.magnitude);
-        if (body.velocity.magnitude > 0.0f) {
-            Debug.Log("Moving");
+        // Set the correct animation
+        if (!agent.pathPending) {
             animator.SetBool("Walking", true);
         } else {
             animator.SetBool("Walking", false);
         }
+    }
+
+    void Navigate() {
+        // If there are no waypoints, don't move
+        if (waypoints.Length == 0) {
+            return;
+        }
+
+        // Navigate to the selected destination
+        agent.destination = waypoints[destinationIndex].position;
+
+        // Pick the next destination randomly
+        System.Random random = new System.Random();
+        destinationIndex = random.Next(waypoints.Length);
     }
 }
