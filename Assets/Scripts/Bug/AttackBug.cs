@@ -9,7 +9,9 @@ public class AttackBug : MonoBehaviour
     public float xForce = 100;
     public float yForce = 100;
     public float zForce = 100;
+    public AudioClip soundEffect;
 
+    private AudioSource audioSource;
     private NavMeshAgent agent;
     private bool wasAttacked = false;
     private bool wasKilled   = false;
@@ -19,7 +21,7 @@ public class AttackBug : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,9 @@ public class AttackBug : MonoBehaviour
     // Attack bug
     void Attack() {
         wasAttacked = true;
+        
+        // Play sound effect
+        audioSource.PlayOneShot(soundEffect);
 
         // Apply force
         GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
