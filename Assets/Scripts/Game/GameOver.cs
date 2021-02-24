@@ -6,15 +6,22 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
+    //=========================================================//
+    // Declare private variables
     private GameObject[] swarms;
     private GameObject[] plots;
 
-    void Start() {
+    //=========================================================//
+    // Declare lifecycle methods
+    void Awake() {
         swarms = GameObject.FindGameObjectsWithTag("Swarm");
         plots  = GameObject.FindGameObjectsWithTag("Sunflower Plot");
     }
 
+    //=========================================================//
+    // Declare public methods
     public void GameOverScreen() {
+
         // Calculate and set score
         SetScore();
 
@@ -23,7 +30,9 @@ public class GameOver : MonoBehaviour
 
     }
 
-    void SetScore() {
+    //=========================================================//
+    // Declare private methods
+    private void SetScore() {
 
         // Get number of surviving plants
         int sunflowers = GameObject.FindGameObjectsWithTag("Sunflower").Length;
@@ -34,11 +43,11 @@ public class GameOver : MonoBehaviour
         // Set the plant score for the scene
         PlayerStats.SetPlants(sunflowers);
 
-        // Set the maximum score possible for level
-        SetMaxScore();
+        // Set the gold score for level
+        SetGoldScore();
     }
 
-    void SetMaxScore() {
+    private void SetGoldScore() {
 
         // Calculate the max bug score
         int bugCount = 0;
@@ -51,8 +60,8 @@ public class GameOver : MonoBehaviour
         int plantCount = 9 * plots.Length;
         int plantMax = plantCount * PlayerStats.GetPlantScore();
 
-        // Set the max possible score
-        int max = plantMax + bugMax;
-        PlayerStats.SetMaxScore(max);
+        // Set the gold score
+        int goldScore = (plantMax + bugMax)/2;
+        PlayerStats.SetGoldScore(goldScore);
     }
 }

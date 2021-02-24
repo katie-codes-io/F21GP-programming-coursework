@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2582631815700066529}
   - component: {fileID: 2582631815700066558}
   - component: {fileID: 2582631815700066559}
-  - component: {fileID: 8379874224394040042}
   m_Layer: 0
   m_Name: Sickle
   m_TagString: Untagged
@@ -111,15 +110,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.032513, y: 1.8067781, z: 28.74809}
   m_Center: {x: -7.279865, y: -0.00014552266, z: -13.365459}
---- !u!114 &8379874224394040042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2582631815700066556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6025431cb07da994ebcabd4c8b352272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

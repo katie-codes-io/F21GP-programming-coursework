@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//=========================================================//
 // Declare enum to keep track of the state execution state
 public enum ExecutionState {
     NONE,
@@ -10,6 +11,7 @@ public enum ExecutionState {
     COMPLETED
 }
 
+//=========================================================//
 // Declare enum to keep track of the state
 public enum StateType {
     IDLE,

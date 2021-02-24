@@ -5,11 +5,14 @@ using UnityEngine;
 public class EnterShed : MonoBehaviour
 {
 
+    //=========================================================//
+    // Declare private variables
     private GameObject shedFront;
     private GameObject shedRoof;
     private GameObject[] objects = new GameObject[2];
 
-    // Start is called before the first frame update
+    //=========================================================//
+    // Declare lifecycle methods
     void Start()
     {
         // Get the shed front wall and roof objects
@@ -19,7 +22,8 @@ public class EnterShed : MonoBehaviour
         objects[1] = shedRoof;
     }
 
-    // Trigger
+    //=========================================================//
+    // Override methods
     void OnTriggerExit(Collider other) {
 
         // First check if other is a player

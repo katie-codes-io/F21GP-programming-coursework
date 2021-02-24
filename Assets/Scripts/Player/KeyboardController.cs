@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class KeyboardController : MonoBehaviour {
     
-    private Animator animator;
-    private CharacterController controller;
-
+    //=========================================================//
+    // Declare public variables
     public KeyCode keyUp     = KeyCode.W;
     public KeyCode keyDown   = KeyCode.S;
     public KeyCode keyLeft   = KeyCode.A;
@@ -15,13 +14,22 @@ public class KeyboardController : MonoBehaviour {
     public KeyCode keyAttack = KeyCode.Space;
     public KeyCode keyPickup = KeyCode.E;
 
-    void Start() {
+    //=========================================================//
+    // Declare private variables
+    private Animator animator;
+    private CharacterController controller;
+
+    //=========================================================//
+    // Declare lifecycle methods
+
+    void Awake() {
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
 
     void Update () {
 
+        // Get keyboard input
         bool pressingUp     = Input.GetKey(keyUp);
         bool pressingDown   = Input.GetKey(keyDown);
         bool pressingLeft   = Input.GetKey(keyRight);     // the left and right arrows are reversed due to the fixed camera,
@@ -29,6 +37,7 @@ public class KeyboardController : MonoBehaviour {
         bool pressingShift  = Input.GetKeyDown(keySprint);
         bool pressingSpace  = Input.GetKeyDown(keyAttack);
 
+        // Start transforming the player
         if (controller.isGrounded) {
 
             // Rotate

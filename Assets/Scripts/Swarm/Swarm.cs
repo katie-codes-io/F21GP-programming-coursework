@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Swarm : MonoBehaviour
 {
+    //=========================================================//
+    // Declare public variables
+
     // Define a swarm agent object and swarm behaviour
     public GameObject agent;
     public SwarmBehaviour behaviour;
-
-    // Initialise an agent list
-    List<GameObject> agents = new List<GameObject>();
 
     // Customisable swarm features
     public int   count           = 20;      // number of agents in swarm
@@ -21,7 +21,12 @@ public class Swarm : MonoBehaviour
     public float obstacleRadius  = 1.0f;    // agent obstacle avoidance radius
     public float sunflowerRadius = 1.0f;    // agent sunflower cohesion radius
 
-    // Start is called before the first frame update
+    //=========================================================//
+    // Declare private variables
+    private List<GameObject> agents = new List<GameObject>();
+
+    //=========================================================//
+    // Declare lifecycle methods
     void Start()
     {
         // Start populating the swarm
@@ -50,7 +55,6 @@ public class Swarm : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Iterate through the agents in the swarm
@@ -75,8 +79,11 @@ public class Swarm : MonoBehaviour
         }
     }
 
+    //=========================================================//
+    // Declare private methods
+
     // Method to get adjacent objects by tag
-    List<Transform> GetAdjacent(GameObject agent, string[] tags, float radius) {
+    private List<Transform> GetAdjacent(GameObject agent, string[] tags, float radius) {
 
         // Get the list of neighbours ready
         List<Transform> neighbours = new List<Transform>();
