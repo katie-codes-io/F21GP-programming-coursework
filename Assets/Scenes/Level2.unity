@@ -1065,6 +1065,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &60087671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6493925999079087820, guid: 8f3a018afdf24b94087b56ed0fb7dca7,
+    type: 3}
+  m_PrefabInstance: {fileID: 401149543963510550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &72846898
 GameObject:
   m_ObjectHideFlags: 0
@@ -11801,6 +11807,96 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: playerAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: playerDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1955135989}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 60087671}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1752182875}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 469232894}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1387184592}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 2011894457}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1149365666}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 72846899}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 1752182875}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[7]
+      value: 
+      objectReference: {fileID: 469232894}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[8]
+      value: 
+      objectReference: {fileID: 1387184592}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[9]
+      value: 
+      objectReference: {fileID: 2011894457}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[10]
+      value: 
+      objectReference: {fileID: 1149365666}
+    - target: {fileID: 7600468978516109937, guid: af08ff7f86936204f82a00942bc64b07,
+        type: 3}
+      propertyPath: waypoints.Array.data[11]
+      value: 
+      objectReference: {fileID: 72846899}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af08ff7f86936204f82a00942bc64b07, type: 3}
 --- !u!1001 &954921283
@@ -28131,6 +28227,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4629559857311616, guid: ed060c76c3a84134e81b9ef168c5b374,
     type: 3}
   m_PrefabInstance: {fileID: 1929129202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1955135989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 61253628061303858, guid: c4706f160ff0298458d5a8470c04d751,
+    type: 3}
+  m_PrefabInstance: {fileID: 3645901448244888971}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1985097078
 Mesh:
