@@ -1248,10 +1248,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7100691064743043431}
   - component: {fileID: 864896906039921693}
-  - component: {fileID: 4755388107787411376}
   - component: {fileID: 4755388107787411379}
   - component: {fileID: 7194497286681259412}
   - component: {fileID: -4203101173257028072}
+  - component: {fileID: 2285093843381010815}
+  - component: {fileID: 7600468978516109937}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Cat
@@ -1294,19 +1295,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4755388107787411376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6111913826030605172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db91c4ab504b4154a9ff9f77341cd1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
 --- !u!195 &4755388107787411379
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1358,6 +1346,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2285093843381010815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111913826030605172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa71fb931d079d245adf34e37eedee90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 11400000, guid: 6cdb7c13db6298a4ea97df7c52300623, type: 2}
+  validStates:
+  - {fileID: 11400000, guid: 6cdb7c13db6298a4ea97df7c52300623, type: 2}
+  - {fileID: 11400000, guid: c00c91724b57abd4c9c3686301e7efac, type: 2}
+--- !u!114 &7600468978516109937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111913826030605172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73e2200a6a44224992c56afa03641c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6123349872846670785
 GameObject:
   m_ObjectHideFlags: 0
