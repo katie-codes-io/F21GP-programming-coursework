@@ -6,10 +6,14 @@ using UnityEngine.AI;
 
 public class AttackBug : MonoBehaviour
 {
+    //=========================================================//
+    // Declare public variables
     public float xForce = 100;
     public float yForce = 100;
     public float zForce = 100;
 
+    //=========================================================//
+    // Declare private variables
     private AudioSource audioSource;
     private NavMeshAgent agent;
     private bool wasAttacked = false;
@@ -17,13 +21,13 @@ public class AttackBug : MonoBehaviour
     private float elapsed    = 0.0f;
     private float wait       = 2.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    //=========================================================//
+    // Declare lifecycle methods
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Check if the bug was killed
@@ -37,8 +41,11 @@ public class AttackBug : MonoBehaviour
         }
     }
 
+    //=========================================================//
+    // Declare private methods
+
     // Attack bug
-    void Attack() {
+    private void Attack() {
         wasAttacked = true;
         
         // Play sound effect
@@ -47,6 +54,9 @@ public class AttackBug : MonoBehaviour
         // Apply force
         GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
     }
+
+    //=========================================================//
+    // Override methods
 
     // Collider with player
     void OnTriggerStay (Collider other) {

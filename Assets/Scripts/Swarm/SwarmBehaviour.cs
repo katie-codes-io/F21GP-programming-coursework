@@ -5,21 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Swarm/SwarmBehaviour")]
 public class SwarmBehaviour : ScriptableObject
 {
-    // Define editable weights for the different behaviour components
+    //=========================================================//
+    // Declare public variables
     public float alignmentWeight           = 1.0f;
     public float avoidanceWeight           = 1.0f;
     public float cohesionWeight            = 1.0f;
     public float obstacleAvoidanceWeight   = 1.0f;
     public float sunflowerAttractionWeight = 1.0f;
 
-    // Initialise private instance variables
+    //=========================================================//
+    // Declare private variables
     private GameObject agent;
     private Swarm swarm;
     private List<Transform> neighbours = new List<Transform>();
-    private List<Transform> obstacles = new List<Transform>();
+    private List<Transform> obstacles  = new List<Transform>();
     private List<Transform> sunflowers = new List<Transform>();
 
-    // Calculate move
+    //=========================================================//
+    // Declare public methods
     public Vector3 CalculateMove(GameObject agent, Swarm swarm, List<Transform> neighbours, List<Transform> obstacles, List<Transform> sunflowers) {
 
         // Assign to instance variables
@@ -50,6 +53,8 @@ public class SwarmBehaviour : ScriptableObject
         return move;
     }
 
+    //=========================================================//
+    // Declare private methods
     private Vector3 CalculateAlignment() {
 
         Vector3 move = Vector3.zero;

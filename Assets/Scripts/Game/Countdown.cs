@@ -5,27 +5,21 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
+    //=========================================================//
+    // Declare public variables
     public float timeLimit = 60.0f;
 
+    //=========================================================//
+    // Declare private variables
     private string timeRemaining;
     private Rect countdownLabel;
     private bool gameover = false;
     private float elapsed = 0.0f;
     private GUIStyle style = new GUIStyle();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    //=========================================================//
+    // Declare lifecycle methods
     void Update()
-    {
-        CalculateTime();
-    }
-
-    void CalculateTime()
     {
         // Update elapsed
         elapsed = elapsed + Time.deltaTime;
@@ -46,6 +40,8 @@ public class Countdown : MonoBehaviour
         }
     }
 
+    //=========================================================//
+    // Override methods
     void OnGUI()
     {
         // Style the label

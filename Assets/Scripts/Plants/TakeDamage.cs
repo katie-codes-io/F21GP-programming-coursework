@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class TakeDamage : MonoBehaviour
 {
+    //=========================================================//
+    // Declare public variables
     public float health = 10.0f;
     public float damageMultiplier = 1.0f;
 
+    //=========================================================//
+    // Declare private variables
     private float damage = 0.0f;
     private Vector3 scaleChange;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // Damage sunflower
-    void Damage() {
+    //=========================================================//
+    // Declare private methods
+    private void Damage() {
 
         // Increment damage
         float increment = damageMultiplier * Time.fixedDeltaTime;
@@ -40,6 +33,9 @@ public class TakeDamage : MonoBehaviour
         transform.localScale += scaleChange;
     }
 
+    //=========================================================//
+    // Override methods
+    
     // Collision with bug begins
     void OnCollisionEnter (Collision collision) {
 

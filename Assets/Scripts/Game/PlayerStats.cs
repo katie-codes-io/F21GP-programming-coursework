@@ -1,12 +1,15 @@
 ﻿public static class PlayerStats
 {
+    //=========================================================//
+    // Declare private variables
     private static int plants     = 0;
     private static int bugs       = 0;
     private static int plantScore = 10;
     private static int bugScore   = 5;
-    private static int maxScore;
+    private static int goldScore;
 
-    // Setters
+    //=========================================================//
+    // Declare setters
     public static void SetPlants(int value) {
         plants = value;
     }
@@ -15,11 +18,12 @@
         bugs = value;
     }
 
-    public static void SetMaxScore(int value) {
-        maxScore = value;
+    public static void SetGoldScore(int value) {
+        goldScore = value;
     }
 
-    // Getters
+    //=========================================================//
+    // Declare getters
     public static int GetPlants() {
         return plants;
     }
@@ -44,8 +48,8 @@
         return bugs * bugScore;
     }
 
-    public static int GetMaxScore() {
-        return maxScore;
+    public static int GetGoldScore() {
+        return goldScore;
     }
 
     public static int GetTotalScore() {
