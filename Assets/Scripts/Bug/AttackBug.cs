@@ -9,7 +9,6 @@ public class AttackBug : MonoBehaviour
     public float xForce = 100;
     public float yForce = 100;
     public float zForce = 100;
-    public AudioClip soundEffect;
 
     private AudioSource audioSource;
     private NavMeshAgent agent;
@@ -43,7 +42,7 @@ public class AttackBug : MonoBehaviour
         wasAttacked = true;
         
         // Play sound effect
-        audioSource.PlayOneShot(soundEffect);
+        audioSource.Play();
 
         // Apply force
         GetComponent<Rigidbody>().AddForce(xForce, yForce, zForce);
@@ -74,7 +73,6 @@ public class AttackBug : MonoBehaviour
             // Check if collision is with terrain, then kill bug
             string[] obstacles = {"Terrain", "Wall"};
             if (obstacles.Contains(collision.collider.name)) {
-                Debug.Log(collision.collider.name);
                 wasKilled = true;
                 
                 // Update the number of bugs killed

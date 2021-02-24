@@ -13,7 +13,8 @@ public enum ExecutionState {
 // Declare enum to keep track of the state
 public enum StateType {
     IDLE,
-    PATROL
+    PATROL,
+    FOLLOW
 }
 
 public abstract class AbstractCatFSMState : ScriptableObject
@@ -24,6 +25,7 @@ public abstract class AbstractCatFSMState : ScriptableObject
     protected Animator animator;
     protected CatNPC npc;
     protected CatFSM fsm;
+    protected AudioSource audio;
 
     // Declare inline properties
     public ExecutionState ExecutionState { get; protected set; }
@@ -38,7 +40,7 @@ public abstract class AbstractCatFSMState : ScriptableObject
 
     public abstract void UpdateState();
 
-    public virtual void InitState()
+    public virtual void OnEnable()
     {
         ExecutionState = ExecutionState.NONE;
     }
@@ -86,6 +88,13 @@ public abstract class AbstractCatFSMState : ScriptableObject
     {
         if (fsm != null) {
             this.fsm = fsm;
+        }
+    }
+
+    public virtual void SetAudio(AudioSource audio)
+    {
+        if (audio != null) {
+            this.audio = audio;
         }
     }
 }

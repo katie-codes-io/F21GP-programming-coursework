@@ -9,16 +9,15 @@ public class CatIdleState : AbstractCatFSMState
     // Declare public variables
     public float duration = 5f;
 
-    //=========================================================//
     // Declare private variables
     private float idleDuration;
 
     //=========================================================//
     // Implement abstract/virtual methods
 
-    public override void InitState()
+    public override void OnEnable()
     {
-        base.InitState();
+        base.OnEnable();
 
         // Set the state type to idle
         StateType = StateType.IDLE;
@@ -52,7 +51,15 @@ public class CatIdleState : AbstractCatFSMState
             // Check if idle duration has maxed out, if so, patrol
             if (idleDuration >= duration)
             {
-                fsm.EnterState(StateType.PATROL);
+                if (npc.Player != null) {
+                    ExitState();
+                    fsm.EnterState(StateType.FOLLOW);
+                }
+                else
+                {
+                    ExitState();
+                    fsm.EnterState(StateType.PATROL);
+                }
             }
         }
     }

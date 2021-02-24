@@ -10,7 +10,6 @@ public class CatFSM : MonoBehaviour
     public AbstractCatFSMState initialState;
     public List<AbstractCatFSMState> validStates;
     
-    //=========================================================//
     // Declare private variables
     private AbstractCatFSMState currentState;
     private Dictionary<StateType, AbstractCatFSMState> fsmStates;
@@ -20,6 +19,7 @@ public class CatFSM : MonoBehaviour
 
     void Awake()
     {
+
         // Initially, set the current state to null
         currentState = null;
 
@@ -31,6 +31,7 @@ public class CatFSM : MonoBehaviour
             state.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             state.SetAnimator(GetComponent<Animator>());
             state.SetNPC(GetComponent<CatNPC>());
+            state.SetAudio(GetComponent<AudioSource>());
             state.SetFSM(this);
 
             // Add the state to the dictionary

@@ -6,10 +6,14 @@ using UnityEngine.AI;
 [CreateAssetMenu(menuName = "State/Patrol")]
 public class CatPatrolState : AbstractCatFSMState
 {
-    //=========================================================//
+    //=========================================================//    
+    // Declare public variables
+    public float duration = 5f;
+
     // Declare private variables
     private Transform[] waypoints;
     private int destinationIndex;
+    private float patrolDuration;
 
     //=========================================================//
     // Declare private methods
@@ -27,9 +31,9 @@ public class CatPatrolState : AbstractCatFSMState
     //=========================================================//
     // Implement abstract/virtual methods
 
-    public override void InitState()
+    public override void OnEnable()
     {
-        base.InitState();
+        base.OnEnable();
 
         // Set the state type to patrol
         StateType = StateType.PATROL;
@@ -45,6 +49,9 @@ public class CatPatrolState : AbstractCatFSMState
         // Check if we entered the state first
         if (EnteredState)
         {
+            // Reset the patrol duration
+            patrolDuration = 0f;
+
             // Get the waypoints from the NPC component
             waypoints = npc.waypoints;
 
@@ -56,7 +63,7 @@ public class CatPatrolState : AbstractCatFSMState
 
             } else {
                 // Exit state properly
-                base.ExitState();
+                ExitState();
             }
         }
 
@@ -67,8 +74,23 @@ public class CatPatrolState : AbstractCatFSMState
         // Check if we entered the state first
         if (EnteredState)
         {
+            // Increment the patrol duration
+            patrolDuration += Time.deltaTime;
+
+            // Check if we've encountered a player that should be followed
+            if (npc.Player != null)
+            {
+                ExitState();
+                fsm.EnterState(StateType.FOLLOW);
+            }
+            // Check if patrol duration has maxed out, if so, follow/idle
+            else if (patrolDuration >= duration)
+            {
+                ExitState();
+                fsm.EnterState(StateType.IDLE);
+            }
             // Check if we need to set another waypoint
-            if (!agent.pathPending & agent.remainingDistance < 0.5f)
+            else if (!agent.pathPending & agent.remainingDistance < 0.5f)
             {
                 // Navigate!
                 Navigate();
