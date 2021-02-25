@@ -12,7 +12,6 @@ public class CatNPC : MonoBehaviour
     public Transform[] waypoints;
     public GameObject[] players;
     public float playerDistance;
-    public float playerAngle;
 
     // Declare private variables
     private NavMeshAgent agent;
@@ -37,10 +36,9 @@ public class CatNPC : MonoBehaviour
             foreach (GameObject followPlayer in players) {
                 // Get the distance and angle
                 float distance = Vector3.Distance(followPlayer.transform.position, transform.position);
-                float angle = Vector3.Angle(transform.position, followPlayer.transform.position);
-                
-                // Compare the distance and angle to thresholds
-                if (distance <= playerDistance & angle < playerAngle) {
+
+                // Compare the distance to threshold
+                if (distance <= playerDistance) {
                     Player = followPlayer;
                 }
             }

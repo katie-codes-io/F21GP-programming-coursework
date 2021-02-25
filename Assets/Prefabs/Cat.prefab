@@ -1384,8 +1384,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   players: []
-  playerDistance: 2
-  playerAngle: 2
+  playerDistance: 1
 --- !u!82 &3272701440884332153
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1398,7 +1397,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8d5733d11aa0b35499f61397eb9fce96, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
